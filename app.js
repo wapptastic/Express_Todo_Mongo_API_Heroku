@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/todos', todo);
 mongoose.connect(database.url); 
-console.log(database.url));
+console.log(database.url);
 
 app.use(methodOverride(function(req, res){
       if (req.body && typeof req.body === 'object' && '_method' in req.body) {
