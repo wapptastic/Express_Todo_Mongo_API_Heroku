@@ -11,8 +11,6 @@ var todo = require('./routes/todo');
 
 var database = require('./config/database'); 
 
-
-
 var app = express();
 
 // view engine setup
@@ -30,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/todos', todo);
 mongoose.connect(database.url); 
+console.log(database.url));
 
 app.use(methodOverride(function(req, res){
       if (req.body && typeof req.body === 'object' && '_method' in req.body) {
