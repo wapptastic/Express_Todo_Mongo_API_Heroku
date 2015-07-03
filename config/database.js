@@ -1,4 +1,3 @@
 module.exports = {
-
-	url : 'mongodb://localhost/todo'
+	url : process.env.MONGOLAB_URI
 }
