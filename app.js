@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/todos', todo);
 mongoose.connect(database.url); 
-console.log(database.url);
+
 
 app.use(methodOverride(function(req, res){
       if (req.body && typeof req.body === 'object' && '_method' in req.body) {
@@ -51,14 +51,14 @@ app.use(function(req, res, next) {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-app.use(function(err, req, res, next){
+  app.use(function(err, req, res, next){
     res.status(err.status || 500);
     res.send({
-        message: err.message,
+        message: 'Internal server error',
         error: err
     });
     return;
-});
+  });
 }
 
 // production error handler
@@ -71,5 +71,6 @@ app.use(function(err, req, res, next){
     });
     return;
 });
+
 
 module.exports = app;
